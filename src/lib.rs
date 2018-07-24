@@ -141,9 +141,6 @@ impl<W> BuildFromWindowSettings for PistonWindow<W>
     where W: Window + OpenGLWindow + BuildFromWindowSettings
 {
     fn build_from_window_settings(settings: &WindowSettings) -> Result<PistonWindow<W>, String> {
-        // Turn on sRGB.
-        let settings = settings.clone().srgb(true);
-
         // Use OpenGL 3.2 by default, because this is what window backends
         // usually do.
         let opengl = settings.get_maybe_opengl().unwrap_or(OpenGL::V3_2);
